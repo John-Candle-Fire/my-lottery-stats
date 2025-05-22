@@ -1,5 +1,96 @@
 [
     {
+        "draw_sequence": "25/056",
+        "draw_date": "20/05/2025",
+        "numbers": [
+            10,
+            15,
+            28,
+            31,
+            34,
+            40
+        ],
+        "special_number": 48
+    },
+    {
+        "draw_sequence": "25/055",
+        "draw_date": "17/05/2025",
+        "numbers": [
+            12,
+            22,
+            27,
+            29,
+            32,
+            34
+        ],
+        "special_number": 9
+    },
+    {
+        "draw_sequence": "25/054",
+        "draw_date": "15/05/2025",
+        "numbers": [
+            6,
+            12,
+            29,
+            32,
+            34,
+            46
+        ],
+        "special_number": 16
+    },
+    {
+        "draw_sequence": "25/053",
+        "draw_date": "13/05/2025",
+        "numbers": [
+            13,
+            26,
+            27,
+            41,
+            45,
+            49
+        ],
+        "special_number": 46
+    },
+    {
+        "draw_sequence": "25/052",
+        "draw_date": "11/05/2025",
+        "numbers": [
+            19,
+            26,
+            28,
+            29,
+            46,
+            49
+        ],
+        "special_number": 32
+    },
+    {
+        "draw_sequence": "25/051",
+        "draw_date": "08/05/2025",
+        "numbers": [
+            6,
+            11,
+            17,
+            22,
+            27,
+            43
+        ],
+        "special_number": 24
+    },
+    {
+        "draw_sequence": "25/050",
+        "draw_date": "06/05/2025",
+        "numbers": [
+            12,
+            15,
+            25,
+            26,
+            29,
+            41
+        ],
+        "special_number": 42
+    },
+    {
         "draw_sequence": "25/049",
         "draw_date": "03/05/2025",
         "numbers": [
