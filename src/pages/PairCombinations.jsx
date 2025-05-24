@@ -74,7 +74,7 @@ const PairCombinations = () => {
   return (
     <div>
       <h2>Pair Combinations</h2>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div className="filter-controls">
         <label>
           From Date:
           <input

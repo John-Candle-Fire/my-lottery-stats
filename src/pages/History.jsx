@@ -54,7 +54,7 @@ const History = () => {
   return (
     <div>
       <h2>Past Draw History</h2>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div className="filter-controls">
         <label>
           From Date: <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
         </label>

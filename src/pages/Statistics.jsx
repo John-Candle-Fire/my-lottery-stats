@@ -71,7 +71,7 @@ const Statistics = () => {
   return (
     <div>
       <h2>Lottery Number Statistics</h2>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div className="filter-controls">
         <label>
           From Date:
           <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
