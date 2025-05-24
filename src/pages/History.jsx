@@ -1,3 +1,5 @@
+// .pages/History.jsx
+// Display past lottery results statistics based on user-defined filters.
 import React, { useState } from 'react';
 import Ball from '../components/Ball';
 import lotteryResults from '../data/Mark6-Results.json';
@@ -13,7 +15,7 @@ const History = () => {
   const filterResults = () => {
     let results = lotteryResults;
 
-    // If both From/To Date and Number of Draws are provided, clear From/To Dates and use Number of Draws
+    // If both From/To Date and Number of Draws are provided, prioritize Number of Draws
     if (fromDate && toDate && pastDraws) {
       setFromDate('');
       setToDate('');
@@ -39,7 +41,6 @@ const History = () => {
     );
 
     setFilteredResults(results);
-    
   };
 
   // Function to reset all inputs
@@ -69,6 +70,11 @@ const History = () => {
               const value = parseInt(e.target.value, 10);
               if (value >= 0 || e.target.value === '') setPastDraws(e.target.value);
             }}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                filterResults();
+              }
+            }}
           />
         </label>
         <button onClick={filterResults}>Run</button>
@@ -85,6 +91,7 @@ const History = () => {
                 {result.numbers.map((num) => (
                   <Ball key={num} number={num} color={numberColors[num] || "black"} />
                 ))}
+                <span> - </span>
                 <Ball number={result.special_number} color={numberColors[result.special_number] || "black"} />
               </div>
             </div>

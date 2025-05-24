@@ -7,4 +7,19 @@
   div {
     margin-top: 10px;
   }
+
+  /* Enhanced styling for selection criteria fields */
+  input[type="date"],
+  input[type="number"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
 }

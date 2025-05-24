@@ -1,3 +1,5 @@
+// ./pages/Statistics.jsx
+// Display Number of Times and last drawn date of each Lottery Number in the selected past draws or date range.
 import React, { useState } from 'react';
 import Ball from '../components/Ball';
 import lotteryResults from '../data/Mark6-Results.json';
@@ -9,53 +11,56 @@ const Statistics = () => {
   const [pastDraws, setPastDraws] = useState('');
   const [statistics, setStatistics] = useState([]);
 
-  // Function to filter results and calculate statistics
   const filterAndCalculateStatistics = () => {
     let filteredResults = lotteryResults;
 
-    // If both From/To Date and Number of Draws are provided, clear From/To Dates and use Number of Draws
+    // Apply filters
     if (fromDate && toDate && pastDraws) {
       setFromDate('');
       setToDate('');
       filteredResults = filteredResults.slice(0, parseInt(pastDraws, 10));
     } else {
-      // Filter by date range
       if (fromDate && toDate) {
         filteredResults = filteredResults.filter((result) =>
           new Date(result.draw_date.split('/').reverse().join('-')) >= new Date(fromDate) &&
           new Date(result.draw_date.split('/').reverse().join('-')) <= new Date(toDate)
         );
       }
-
-      // Filter by number of draws
       if (pastDraws) {
         filteredResults = filteredResults.slice(0, parseInt(pastDraws, 10));
       }
     }
 
-    // Initialize statistics for all numbers
+    // Sort filtered results in descending order (most recent first)
+    filteredResults.sort((a, b) =>
+      new Date(b.draw_date.split('/').reverse().join('-')) - new Date(a.draw_date.split('/').reverse().join('-'))
+    );
+
     const stats = Array.from({ length: 49 }, (_, i) => ({
       number: i + 1,
       count: 0,
-      latestDate: ''
+      latestDate: '',
+      drawsSince: null // Initialize to null to indicate not found yet
     }));
 
-    // Count occurrences and update the latest draw date for each number
-    filteredResults.forEach((result) => {
+    // Process draws from most recent to oldest
+    filteredResults.forEach((result, index) => {
       [...result.numbers, result.special_number].forEach((num) => {
         const stat = stats.find((stat) => stat.number === num);
+        if (stat.drawsSince === null) {
+          stat.latestDate = result.draw_date;
+          stat.drawsSince = index; // Set drawsSince only for the most recent occurrence
+        }
         stat.count += 1;
-        stat.latestDate = result.draw_date; // Update to the most recent draw date
       });
     });
 
-    // Sort statistics by count in descending order
-    stats.sort((a, b) => b.count - a.count);
-
-    setStatistics(stats);
+    // Filter out numbers that never appeared
+    const filteredStats = stats.filter((stat) => stat.count > 0);
+    filteredStats.sort((a, b) => b.count - a.count);
+    setStatistics(filteredStats);
   };
 
-  // Function to reset all inputs and statistics
   const resetFilters = () => {
     setFromDate('');
     setToDate('');
@@ -84,6 +89,11 @@ const Statistics = () => {
               const value = parseInt(e.target.value, 10);
               if (value >= 0 || e.target.value === '') setPastDraws(e.target.value);
             }}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                filterAndCalculateStatistics();
+              }
+            }}
           />
         </label>
         <button onClick={filterAndCalculateStatistics}>Run</button>
@@ -96,17 +106,17 @@ const Statistics = () => {
               <tr>
                 <th>Number</th>
                 <th>Count</th>
-                <th>Latest Date</th>
+                <th>Latest Date (Draws Since)</th>
               </tr>
             </thead>
             <tbody>
               {statistics.map((stat) => (
                 <tr key={stat.number}>
                   <td>
-                    <Ball number={stat.number} color={numberColors[stat.number] || "black"} />
+                    <Ball number={stat.number} color={numberColors[stat.number] || 'black'} />
                   </td>
                   <td>{stat.count}</td>
-                  <td>{stat.latestDate || '-'}</td>
+                  <td>{stat.latestDate} ({stat.drawsSince})</td>
                 </tr>
               ))}
             </tbody>
