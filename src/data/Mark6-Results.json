@@ -1,5 +1,18 @@
 [
     {
+        "draw_sequence": "25/076",
+        "draw_date": "12/07/2025",
+        "numbers": [
+            5,
+            17,
+            20,
+            24,
+            27,
+            35
+        ],
+        "special_number": 38
+    },
+    {
         "draw_sequence": "25/075",
         "draw_date": "10/07/2025",
         "numbers": [
