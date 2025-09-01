@@ -1,5 +1,83 @@
 [
     {
+        "draw_sequence": "25/095",
+        "draw_date": "30/08/2025",
+        "numbers": [
+            6,
+            18,
+            31,
+            33,
+            44,
+            49
+        ],
+        "special_number": 2
+    },
+    {
+        "draw_sequence": "25/094",
+        "draw_date": "28/08/2025",
+        "numbers": [
+            5,
+            36,
+            39,
+            44,
+            48,
+            49
+        ],
+        "special_number": 32
+    },
+    {
+        "draw_sequence": "25/093",
+        "draw_date": "26/08/2025",
+        "numbers": [
+            2,
+            3,
+            16,
+            25,
+            38,
+            48
+        ],
+        "special_number": 6
+    },
+    {
+        "draw_sequence": "25/092",
+        "draw_date": "23/08/2025",
+        "numbers": [
+            17,
+            22,
+            26,
+            36,
+            39,
+            45
+        ],
+        "special_number": 14
+    },
+    {
+        "draw_sequence": "25/091",
+        "draw_date": "21/08/2025",
+        "numbers": [
+            28,
+            32,
+            34,
+            37,
+            45,
+            49
+        ],
+        "special_number": 7
+    },
+    {
+        "draw_sequence": "25/090",
+        "draw_date": "19/08/2025",
+        "numbers": [
+            6,
+            8,
+            10,
+            23,
+            32,
+            45
+        ],
+        "special_number": 3
+    },
+    {
         "draw_sequence": "25/089",
         "draw_date": "16/08/2025",
         "numbers": [
